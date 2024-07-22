@@ -1,111 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Letters</title>
-    <style>
-        .banner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .text-layer {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .svg-container {
-            width: 60%;
-            height: 60%;
-        }
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .banner {
+    position: relative;
+    width: 1920px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  svg {
+    width: auto;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .cls-1 {
+    fill: none;
+    stroke: #e60012;
+    stroke-width: 5; /* 加粗线条 */
+    stroke-miterlimit: 10;
+    stroke-dasharray: 0, 1000; /* 初始为0，用于路径动画 */
+    animation: draw 5s linear infinite; /* 路径动画 */
+  }
+  @keyframes draw {
+    0% {
+      stroke-dasharray: 0, 1000;
+    }
+    50% {
+      stroke-dasharray: 1000, 0; /* 倒放消失 */
+    }
+    100% {
+      stroke-dasharray: 0, 1000; /* 重新生成 */
+    }
+  }
+  .text {
+    position: absolute;
+    color: white;
+    font-family: 'Source Han Sans', sans-serif;
+    font-weight: bold;
+    font-size: 72px;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="banner">
-        <div class="text-layer">VORTELLE</div>
-        <div class="svg-container">
-            <svg id="图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 575.43 572.66">
-                <defs>
-                    <style>
-                        .cls-1 {
-                            fill: none;
-                            stroke: #e60012;
-                            stroke-miterlimit: 10;
-                        }
-                    </style>
-                </defs>
-                <path class="cls-1" d="M312.76,613.71c2.12-66.35,48.92-118.4,101-125,64.17-8.14,135.75,52.78,133,138h34.83" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M312.76,613.71c2.12-66.35,48.92-118.4,101-125,64.17-8.14,135.75,52.78,133,138h34.83"
-                        to="M312.76,613.71c2.12-66.35,48.92-118.4,101-125,64.17-8.14,135.75,52.78,133,138h34.83"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-                <path class="cls-1" d="M424.46,488q.1-4.46.08-8.83c-.25-40.51-9.19-76.55-23.21-106.72" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M424.46,488q.1-4.46.08-8.83c-.25-40.51-9.19-76.55-23.21-106.72"
-                        to="M424.46,488q.1-4.46.08-8.83c-.25-40.51-9.19-76.55-23.21-106.72"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-                <path class="cls-1" d="M185.67,342c-23.63,39.41-38,93.26-30.8,155.13.18,1.6.38,3.2.59,4.81" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M185.67,342c-23.63,39.41-38,93.26-30.8,155.13.18,1.6.38,3.2.59,4.81"
-                        to="M185.67,342c-23.63,39.41-38,93.26-30.8,155.13.18,1.6.38,3.2.59,4.81"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-                <path class="cls-1" d="M462.78,333.31c-15,17.54-35.47,31.41-61.45,39.12C337,391.5,246.41,378.83,185.67,342c-29.49-17.86-51.95-41.41-61-69.78C99.28,192.39,187.85,100.8,235,72.7c57.5-34.24,42.37,2.16,56.35-2.35,23.3-7.52,11.76-3.58,28.31-10.35,37.58-15.38,66.29,8.34,82,26.78C448.33,141.3,523.2,262.71,462.78,333.31Z" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M462.78,333.31c-15,17.54-35.47,31.41-61.45,39.12C337,391.5,246.41,378.83,185.67,342c-29.49-17.86-51.95-41.41-61-69.78C99.28,192.39,187.85,100.8,235,72.7c57.5-34.24,42.37,2.16,56.35-2.35,23.3-7.52,11.76-3.58,28.31-10.35,37.58-15.38,66.29,8.34,82,26.78C448.33,141.3,523.2,262.71,462.78,333.31Z"
-                        to="M462.78,333.31c-15,17.54-35.47,31.41-61.45,39.12C337,391.5,246.41,378.83,185.67,342c-29.49-17.86-51.95-41.41-61-69.78C99.28,192.39,187.85,100.8,235,72.7c57.5-34.24,42.37,2.16,56.35-2.35,23.3-7.52,11.76-3.58,28.31-10.35,37.58-15.38,66.29,8.34,82,26.78C448.33,141.3,523.2,262.71,462.78,333.31Z"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-                <path class="cls-1" d="M243.39,87" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M243.39,87"
-                        to="M243.39,87"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-                <path class="cls-1" d="M297.64,68.22c-4.95,2-17.3,7.67-25.44,21.13a49.77,49.77,0,0,0-6.26,16.43" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M297.64,68.22c-4.95,2-17.3,7.67-25.44,21.13a49.77,49.77,0,0,0-6.26,16.43"
-                        to="M297.64,68.22c-4.95,2-17.3,7.67-25.44,21.13a49.77,49.77,0,0,0-6.26,16.43"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-                <path class="cls-1" d="M6.16,615.74H27.77c4.42-68.12,58.84-115.15,124-113.76,60.78,1.3,116.47,43.72,124,106.76" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M6.16,615.74H27.77c4.42-68.12,58.84-115.15,124-113.76,60.78,1.3,116.47,43.72,124,106.76"
-                        to="M6.16,615.74H27.77c4.42-68.12,58.84-115.15,124-113.76,60.78,1.3,116.47,43.72,124,106.76"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-                <path class="cls-1" d="M214.83,456.78c.24.81,4.94,15.27,18.78,18.79,11.76,3,18.46-16.85,31.3-15.66,9.31.87,11,10.73,20.35,15.66,8.93,4.73,24.71,4.84,54.78-15.66" transform="translate(-6.16 -54.55)">
-                    <animate
-                        attributeName="d"
-                        from="M214.83,456.78c.24.81,4.94,15.27,18.78,18.79,11.76,3,18.46-16.85,31.3-15.66,9.31.87,11,10.73,20.35,15.66,8.93,4.73,24.71,4.84,54.78-15.66"
-                        to="M214.83,456.78c.24.81,4.94,15.27,18.78,18.79,11.76,3,18.46-16.85,31.3-15.66,9.31.87,11,10.73,20.35,15.66,8.93,4.73,24.71,4.84,54.78-15.66"
-                        dur="3s"
-                        repeatCount="indefinite" />
-                </path>
-            </svg>
-        </div>
-    </div>
+  <div class="banner">
+    <svg id="图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 575.43 572.66">
+      <path class="cls-1" d="M312.76,613.71c2.12-66.35,48.92-118.4,101-125,64.17-8.14,135.75,52.78,133,138h34.83" transform="translate(-6.16 -54.55)"/>
+      <path class="cls-1" d="M424.46,488q.1-4.46.08-8.83c-.25-40.51-9.19-76.55-23.21-106.72" transform="translate(-6.16 -54.55)"/>
+      <path class="cls-1" d="M185.67,342c-23.63,39.41-38,93.26-30.8,155.13.18,1.6.38,3.2.59,4.81" transform="translate(-6.16 -54.55)"/>
+      <path class="cls-1" d="M462.78,333.31c-15,17.54-35.47,31.41-61.45,39.12C337,391.5,246.41,378.83,185.67,342c-29.49-17.86-51.95-41.41-61-69.78C99.28,192.39,187.85,100.8,235,72.7c57.5-34.24,42.37,2.16,56.35-2.35,23.3-7.52,11.76-3.58,28.31-10.35,37.58-15.38,66.29,8.34,82,26.78C448.33,141.3,523.2,262.71,462.78,333.31Z" transform="translate(-6.16 -54.55)"/>
+      <path class="cls-1" d="M243.39,87" transform="translate(-6.16 -54.55)"/>
+      <path class="cls-1" d="M297.64,68.22c-4.95,2-17.3,7.67-25.44,21.13a49.77,49.77,0,0,0-6.26,16.43" transform="translate(-6.16 -54.55)"/>
+      <path class="cls-1" d="M6.16,615.74H27.77c4.42-68.12,58.84-115.15,124-113.76,60.78,1.3,116.47,43.72,124,106.76" transform="translate(-6.16 -54.55)"/>
+      <path class="cls-1" d="M214.83,456.78c.24.81,4.94,15.27,18.78,18.79,11.76,3,18.46-16.85,31.3-15.66,9.31.87,11,10.73,20.35,15.66,8.93,4.73,24.71,4.84,54.78-15.66" transform="translate(-6.16 -54.55)"/>
+    </svg>
+    <div class="text">VORTELLE</div>
+  </div>
 </body>
 </html>
